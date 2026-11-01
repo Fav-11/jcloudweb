@@ -21,7 +21,7 @@ import ArchitectureDiagram from '../components/ArchitectureDiagram.astro';
 
   <section class="section">
     <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;" data-reveal>
+      <div class="grid-2" style="gap: 2rem;" data-reveal>
         <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem;">
           <h2 style="font-size: 1.25rem; margin-bottom: 0.75rem;"><span style="color: var(--accent); margin-right: 0.5rem;">1.</span>Your laptop is the storage</h2>
           <p style="color: var(--text-muted); font-size: 0.95rem;">The J-Cloud Windows Server (FastAPI, Python) runs on your computer and reaches your local files. It handles file browsing, upload, download, rename, delete and folder management. Your laptop remains the primary storage location — J-Cloud does not mirror your files to its own servers.</p>
@@ -37,7 +37,7 @@ import ArchitectureDiagram from '../components/ArchitectureDiagram.astro';
   <section class="section">
     <div class="container">
       <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem;" data-reveal>
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+        <div class="grid-2" style="gap: 2rem;">
           <div>
             <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Online control backend</h2>
             <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">The backend manages accounts and authentication, laptop registrations and device revocation, Basic and Premium subscription entitlements, payment verification and expiry, usage limits, and authorization of remote connectivity. It stores service metadata, not your file contents.</p>

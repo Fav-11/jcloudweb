@@ -16,7 +16,7 @@ import { ShieldCheck, Laptop, Smartphone } from '@lucide/astro';
 
   <section class="section">
     <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;" data-reveal>
+      <div class="grid-3" style="gap: 1.25rem;" data-reveal>
         <PricingCard name="Free" price="0" cadence="/mo" summary="Local LAN access, one laptop." benefits={['Local network file access', 'File browse, upload, download, rename, delete', 'One paired laptop', 'Windows Server included']} excluded={['Remote access outside LAN', 'J-Cloud relay', 'Priority support']} />
         <PricingCard name="Basic" price="499" cadence="/mo" summary="Local access for multiple devices." benefits={['Local network file access', 'File browse, upload, download, rename, delete', 'Multiple paired devices', 'Standard support']} excluded={['Remote access outside LAN', 'J-Cloud relay', 'Priority support']} featured />
         <PricingCard name="Premium" price="999" cadence="/mo" summary="Remote access from anywhere." benefits={['Local network file access', 'Remote access via J-Cloud relay', 'Multiple paired devices', 'Priority support', 'Subscription management']} excluded={[]} />
@@ -27,7 +27,7 @@ import { ShieldCheck, Laptop, Smartphone } from '@lucide/astro';
 
   <section class="section">
     <div class="container narrow">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;" data-reveal>
+      <div class="grid-3" style="gap: 1.5rem;" data-reveal>
         <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center;">
           <Laptop size={32} aria-hidden="true" style="color: var(--accent); margin-bottom: 1rem;" />
           <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Windows Server</h3>

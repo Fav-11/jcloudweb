@@ -16,7 +16,7 @@ import { Download, ExternalLink, GitBranch, Clock, Info } from '@lucide/astro';
 
   <section class="section">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr 340px; gap: 2rem;" data-reveal>
+      <div class="sidebar-layout" data-reveal>
         <div>
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1rem;">
             <Download size={18} aria-hidden="true" />
@@ -30,7 +30,7 @@ import { Download, ExternalLink, GitBranch, Clock, Info } from '@lucide/astro';
             </div>
           )}
         </div>
-        <aside style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; position: sticky; top: 1.25rem;">
+        <aside class="download-sidebar" style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem;">
           <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 1rem;">
             <GitBranch size={18} aria-hidden="true" style="color: var(--accent); flex-shrink: 0;" />
             <div>

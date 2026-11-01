@@ -48,7 +48,7 @@ import { Laptop, Smartphone, Cloud, ShieldCheck, Check } from '@lucide/astro';
         <h2>Three parts, one purpose</h2>
         <p style="color: var(--text-muted);">Your laptop stores the files. Your phone accesses them. The online backend keeps accounts, devices and subscriptions in order.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;" data-reveal>
+      <div class="grid-3" style="gap: 1.25rem;" data-reveal>
         <FeatureCard icon={Laptop} title="Windows Server" href="/download" label="Download Windows Server">
           Runs on your computer. Reaches your local files and enforces authorized sessions and pairing.
         </FeatureCard>
@@ -79,7 +79,7 @@ import { Laptop, Smartphone, Cloud, ShieldCheck, Check } from '@lucide/astro';
         <p class="eyebrow">Key features</p>
         <h2>Everything you need to manage your files</h2>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;" data-reveal>
+      <div class="grid-3" style="gap: 1.25rem;" data-reveal>
         <FeatureCard icon={Check} title="File management" href="/how-it-works" label="Learn more">
           Browse, upload, download, rename, delete and organize folders on your laptop.
         </FeatureCard>
@@ -100,7 +100,7 @@ import { Laptop, Smartphone, Cloud, ShieldCheck, Check } from '@lucide/astro';
         <h2>Choose your plan</h2>
         <p style="color: var(--text-muted);">One-time Windows Server download. Subscriptions control remote access and entitlements.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;" data-reveal>
+      <div class="grid-3" style="gap: 1.25rem;" data-reveal>
         <PricingCard name="Free" price="0" cadence="/mo" summary="Local LAN access, one laptop." benefits={['Local network file access', 'File browse, upload, download, rename, delete', 'One paired laptop', 'Windows Server included']} excluded={['Remote access outside LAN', 'Relay infrastructure', 'Priority support']} />
         <PricingCard name="Basic" price="499" cadence="/mo" summary="Local access for multiple devices." benefits={['Local network file access', 'File browse, upload, download, rename, delete', 'Multiple paired devices', 'Standard support']} excluded={['Remote access outside LAN', 'Relay infrastructure', 'Priority support']} featured />
         <PricingCard name="Premium" price="999" cadence="/mo" summary="Remote access from anywhere." benefits={['Local network file access', 'Remote access via J-Cloud relay', 'Multiple paired devices', 'Priority support', 'Subscription management']} excluded={[]} />
