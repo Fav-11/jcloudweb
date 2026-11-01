@@ -2,7 +2,6 @@
 import MainLayout from './MainLayout.astro';
 import { legalConfig, legalDocuments } from '../config/legal.js';
 const { title, description, sections = [], updated = legalConfig.lastUpdated, effective = legalConfig.effectiveDate } = Astro.props;
-const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
 ---
 <MainLayout title={title} description={description}>
   <div class="legal-page">
@@ -31,15 +30,15 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
         </header>
         <div class="legal-toc">
           <p>On this page</p>
-          <ol>{sections.map((section) => <li><a href={`#${section.id}`}>{section.title}</a></li>)}</ol>
+          <ol>{sections.map((section: { id: string; title: string }) => <li><a href={`#${section.id}`}>{section.title}</a></li>)}</ol>
         </div>
         <div class="legal-content">
-          {sections.map((section, index) => (
+          {sections.map((section: { id: string; title: string; paragraphs?: string[]; items?: string[]; subsections?: { title: string; paragraphs?: string[]; items?: string[] }[] }, index: number) => (
             <section id={section.id}>
               <h2><span>{String(index + 1).padStart(2, '0')}</span>{section.title}</h2>
-              {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
-              {section.items && <ul>{section.items.map((item) => <li>{item}</li>)}</ul>}
-              {section.subsections?.map((sub) => <><h3>{sub.title}</h3>{sub.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}{sub.items && <ul>{sub.items.map((item) => <li>{item}</li>)}</ul>}</>)}
+              {section.paragraphs?.map((paragraph: string) => <p>{paragraph}</p>)}
+              {section.items && <ul>{section.items.map((item: string) => <li>{item}</li>)}</ul>}
+              {section.subsections?.map((sub: { title: string; paragraphs?: string[]; items?: string[] }) => <><h3>{sub.title}</h3>{sub.paragraphs?.map((paragraph: string) => <p>{paragraph}</p>)}{sub.items && <ul>{sub.items.map((item: string) => <li>{item}</li>)}</ul>}</>)}
             </section>
           ))}
         </div>

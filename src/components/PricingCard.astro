@@ -11,8 +11,8 @@ const { name, price, cadence, summary, benefits, excluded = [], featured = false
     <p class="plan-summary">{summary}</p>
   </div>
   <ul class="plan-benefits">
-    {benefits.map((item) => <li><Check size={17} aria-hidden="true" /><span>{item}</span></li>)}
-    {excluded.map((item) => <li class="excluded"><X size={17} aria-hidden="true" /><span>{item}</span></li>)}
+    {benefits.map((item: string) => <li><Check size={17} aria-hidden="true" /><span>{item}</span></li>)}
+    {excluded.map((item: string) => <li class="excluded"><X size={17} aria-hidden="true" /><span>{item}</span></li>)}
   </ul>
   <a class:list={['button', featured ? 'button-primary' : 'button-secondary', 'button-block']} href="/download">Get started with J-Cloud</a>
 </article>

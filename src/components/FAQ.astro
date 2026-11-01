@@ -9,7 +9,7 @@ const { items, heading = 'Frequently asked questions', intro } = Astro.props;
       {intro && <p>{intro}</p>}
     </div>
     <div class="faq-list" data-reveal>
-      {items.map((item) => (
+      {items.map((item: { question: string; answer: string }) => (
         <details class="faq-item">
           <summary><span>{item.question}</span><span class="faq-plus" aria-hidden="true"></span></summary>
           <div class="faq-answer"><p>{item.answer}</p></div>

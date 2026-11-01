@@ -1,9 +1,8 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import { siteConfig } from '../config/site.js';
 import { downloads, isReleaseVerified } from '../config/downloads.js';
 import DownloadButton from '../components/DownloadButton.astro';
-import { Download, ShieldAlert, ExternalLink, GitBranch, Clock, Info } from '@lucide/astro';
+import { Download, ExternalLink, GitBranch, Clock, Info } from '@lucide/astro';
 ---
 
 <MainLayout title="Download J-Cloud Windows Server" description="Download the official J-Cloud Windows Server installer from GitHub Releases.">
@@ -51,7 +50,7 @@ import { Download, ShieldAlert, ExternalLink, GitBranch, Clock, Info } from '@lu
           <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">{downloads.supportedWindows}</p>
           <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Requirements</h3>
           <ul style="color: var(--text-muted); font-size: 0.9rem; padding-left: 1.1rem; margin: 0;">
-            {downloads.installerRequirements.map((req) => <li key={req}>{req}</li>)}
+            {downloads.installerRequirements.map((req) => <li>{req}</li>)}
           </ul>
           <div style="margin-top: 1rem; padding: 0.75rem; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm);">
             <Info size={16} aria-hidden="true" style="color: var(--accent); flex-shrink: 0; margin-right: 8px;" />
@@ -68,7 +67,7 @@ import { Download, ShieldAlert, ExternalLink, GitBranch, Clock, Info } from '@lu
         <h2 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Release notes</h2>
         {downloads.releaseNotes.length > 0 ? (
           <ul style="color: var(--text-muted); font-size: 0.9rem; padding-left: 1.1rem; margin: 0;">
-            {downloads.releaseNotes.map((note) => <li key={note}>{note}</li>)}
+            {downloads.releaseNotes.map((note) => <li>{note}</li>)}
           </ul>
         ) : (
           <p style="color: var(--text-dim); font-size: 0.9rem; margin: 0;">Release notes will appear here once a verified release is configured.</p>

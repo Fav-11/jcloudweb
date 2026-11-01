@@ -1,7 +1,7 @@
 ---
 import { primaryNavigation } from '../config/site.js';
 const currentPath = Astro.url.pathname;
-const isCurrent = (href) => currentPath === href || (href !== '/' && currentPath.startsWith(href));
+const isCurrent = (href: string) => currentPath === href || (href !== '/' && currentPath.startsWith(href));
 ---
 <header class="site-header" data-site-header>
   <div class="header-inner">
