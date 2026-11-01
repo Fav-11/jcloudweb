@@ -1,0 +1,15 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { siteConfig } from '../config/site.js';
+---
+
+<MainLayout title="Page not found" description="The page you are looking for could not be found." noindex>
+  <section class="section" style="padding-top: 64px; padding-bottom: 64px;">
+    <div class="container narrow" style="text-align: center;" data-reveal>
+      <h1 style="font-size: 3rem; margin-bottom: 1rem;">404</h1>
+      <p style="color: var(--text-muted); font-size: 1.15rem; margin-bottom: 2rem;">The page you are looking for could not be found.</p>
+      <a class="button button-primary" href="/" style="text-decoration: none;">Go to homepage</a>
+      <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 1.5rem;">Or use the navigation above to browse the J-Cloud site.</p>
+    </div>
+  </section>
+</MainLayout>

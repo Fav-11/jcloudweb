@@ -1,0 +1,76 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { siteConfig } from '../config/site.js';
+import DownloadButton from '../components/DownloadButton.astro';
+import ArchitectureDiagram from '../components/ArchitectureDiagram.astro';
+import { Laptop, Smartphone, Cloud, ShieldCheck, Network, Link2 } from '@lucide/astro';
+---
+
+<MainLayout title="How it works" description="How J-Cloud connects your phone to your files on your Windows computer.">
+  <section class="section" style="padding-top: 40px;">
+    <div class="container narrow" data-reveal>
+      <p class="eyebrow">Architecture</p>
+      <h1>How J-Cloud works</h1>
+      <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">J-Cloud is personal cloud storage where <strong>you</strong> provide the storage. Your Windows computer stays the primary location for your files. The phone, the laptop server and the online backend each have a distinct role.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container" data-reveal>
+      <ArchitectureDiagram />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;" data-reveal>
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem;">
+          <h2 style="font-size: 1.25rem; margin-bottom: 0.75rem;"><span style="color: var(--accent); margin-right: 0.5rem;">1.</span>Your laptop is the storage</h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">The J-Cloud Windows Server (FastAPI, Python) runs on your computer and reaches your local files. It handles file browsing, upload, download, rename, delete and folder management. Your laptop remains the primary storage location — J-Cloud does not mirror your files to its own servers.</p>
+        </div>
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem;">
+          <h2 style="font-size: 1.25rem; margin-bottom: 0.75rem;"><span style="color: var(--accent); margin-right: 0.5rem;">2.</span>The phone accesses your files</h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">The Flutter Android application connects to your laptop. On the same network it reaches the laptop directly over LAN. For Premium subscribers, remote connectivity works through the J-Cloud relay, with Cloudflare Quick Tunnel as a fallback.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem;" data-reveal>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+          <div>
+            <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Online control backend</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">The backend manages accounts and authentication, laptop registrations and device revocation, Basic and Premium subscription entitlements, payment verification and expiry, usage limits, and authorization of remote connectivity. It stores service metadata, not your file contents.</p>
+            <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Device pairing</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Pairing authorizes a specific phone to access a specific laptop. Sessions are enforced laptop-side. Devices can be registered and revoked through the online backend.</p>
+          </div>
+          <div>
+            <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Local vs remote access</h2>
+            <ul style="color: var(--text-muted); font-size: 0.95rem;">
+              <li style="margin-bottom: 0.6rem;"><strong>LAN (local):</strong> The app reaches the laptop directly over your local network. Available to all users.</li>
+              <li style="margin-bottom: 0.6rem;"><strong>Remote (Premium):</strong> The app reaches the laptop through the J-Cloud relay infrastructure. Cloudflare Quick Tunnel is a fallback where applicable.</li>
+              <li style="margin-bottom: 0.6rem;"><strong>Not file hosting:</strong> The relay facilitates connectivity; it is not the primary location of your files.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-bottom: 40px;">
+    <div class="container narrow">
+      <div class="section-heading centered" data-reveal>
+        <p class="eyebrow">Next step</p>
+        <h2>Install the Windows Server</h2>
+      </div>
+      <DownloadButton style="margin-top: 1rem;" />
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.75rem;">The installer is distributed through GitHub Releases. See the download page for the current version and installation instructions.</p>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .section-heading.centered h2 { margin-bottom: 0.5rem; }
+</style>

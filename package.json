@@ -1,0 +1,28 @@
+{
+  "name": "j-cloud-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Official public website for J-Cloud personal file access.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "deploy:cloudflare": "astro build && wrangler deploy"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^14.4.3",
+    "@astrojs/sitemap": "^3.7.4",
+    "@lucide/astro": "^1.66.0",
+    "astro": "^7.4.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.151.0"
+  },
+  "engines": {
+    "node": ">=22.23.4"
+  }
+}

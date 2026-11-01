@@ -1,0 +1,54 @@
+---
+import { primaryNavigation } from '../config/site.js';
+const currentPath = Astro.url.pathname;
+const isCurrent = (href) => currentPath === href || (href !== '/' && currentPath.startsWith(href));
+---
+<header class="site-header" data-site-header>
+  <div class="header-inner">
+    <a class="brand" href="/" aria-label="J-Cloud home">
+      <img src="/images/j-cloud-logo.png" alt="" width="34" height="34" />
+      <span>J-Cloud</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <details class="nav-menu">
+        <summary>Product</summary>
+        <div class="nav-popover">
+          <a href="/how-it-works"><strong>How it works</strong><span>Understand the laptop-to-phone architecture.</span></a>
+          <a href="/download"><strong>Windows Server</strong><span>Get the official installer from GitHub Releases.</span></a>
+          <a href="/pricing"><strong>Plans</strong><span>Compare Basic and Premium access.</span></a>
+        </div>
+      </details>
+      {primaryNavigation.slice(1, 5).map((item) => (
+        <a href={item.href} class:list={{ active: isCurrent(item.href) }}>{item.label}</a>
+      ))}
+      <details class="nav-menu">
+        <summary>Legal</summary>
+        <div class="nav-popover nav-popover-wide">
+          <a href="/legal"><strong>Legal & Policies</strong><span>Draft policies and operational terms.</span></a>
+          <a href="/legal/privacy-policy"><strong>Privacy</strong><span>Data handling and user rights.</span></a>
+          <a href="/legal/security"><strong>Security</strong><span>Vulnerability reporting and security posture.</span></a>
+        </div>
+      </details>
+      <a href="/about" class:list={{ active: isCurrent('/about') }}>About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="button button-quiet header-support" href="/support">Support</a>
+      <a class="button button-primary button-small" href="/download">Download for Windows</a>
+      <button class="mobile-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-mobile-toggle>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" data-mobile-nav>
+    <nav aria-label="Mobile navigation">
+      <p class="nav-label">Explore</p>
+      {primaryNavigation.map((item) => <a href={item.href} class:list={{ active: isCurrent(item.href) }}>{item.label}</a>)}
+      <a href="/support">Support</a>
+      <p class="nav-label">Legal</p>
+      <a href="/legal">Legal & Policies</a>
+      <a href="/legal/privacy-policy">Privacy Policy</a>
+      <a href="/legal/terms-of-service">Terms of Service</a>
+      <a class="button button-primary" href="/download">Download for Windows</a>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,32 @@
+---
+import { legalConfig } from '../config/legal.js';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="J-Cloud home">
+        <img src="/images/j-cloud-logo.png" alt="" width="40" height="40" />
+        <span>J-Cloud</span>
+      </a>
+      <p>Your computer. Your files. Your cloud.</p>
+      <p class="footer-fine">Personal file access, powered by the Windows computer you control.</p>
+    </div>
+    <div>
+      <h2>Product</h2>
+      <ul><li><a href="/how-it-works">How it works</a></li><li><a href="/download">Windows Server</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/installation">Installation guide</a></li></ul>
+    </div>
+    <div>
+      <h2>Resources</h2>
+      <ul><li><a href="/about">About</a></li><li><a href="/support">Support</a></li><li><a href="/legal">Legal & Policies</a></li><li><a href="/404">Page not found</a></li></ul>
+    </div>
+    <div>
+      <h2>Legal</h2>
+      <ul><li><a href="/legal/privacy-policy">Privacy</a></li><li><a href="/legal/terms-of-service">Terms</a></li><li><a href="/legal/eula">EULA</a></li><li><a href="/legal/acceptable-use">Acceptable use</a></li><li><a href="/legal/complaints">Complaints</a></li></ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© {year} {legalConfig.operatorName}.</p>
+    <p>Draft legal documents require qualified Nigerian legal review before production publication.</p>
+  </div>
+</footer>

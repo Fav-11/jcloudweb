@@ -1,0 +1,48 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { legalConfig } from '../../config/legal.js';
+
+const sections = [
+  {
+    title: 'Plans',
+    paragraphs: [
+      'J-Cloud offers a free tier for local network (LAN) access and paid Basic and Premium subscriptions. Premium adds remote connectivity through the J-Cloud relay, with Cloudflare Quick Tunnel as a fallback.',
+    ],
+  },
+  {
+    title: 'Payments',
+    paragraphs: [
+      'Subscriptions are billed in Nigerian Naira (₦) through the online backend. Payment is processed by a third-party payment provider under its own terms. J-Cloud does not store full payment card details.',
+    ],
+  },
+  {
+    title: 'Renewal and cancellation',
+    items: [
+      'Paid subscriptions renew automatically unless cancelled.',
+      'You may cancel at any time through the online backend; access continues until the end of the paid period.',
+      'Cancellation does not entitle you to a refund for the current period except as described in the Refund & Cancellation Policy.',
+    ],
+  },
+  {
+    title: 'Price changes',
+    paragraphs: [
+      'J-Cloud may change subscription prices with notice. Continued use after the change takes effect constitutes acceptance.',
+    ],
+  },
+  {
+    title: 'Entitlements',
+    paragraphs: [
+      'Remote access, multiple paired devices and priority support are Premium entitlements. Free and Basic tiers are limited to local network access.',
+    ],
+  },
+  {
+    title: 'Contact',
+    paragraphs: [
+      `Billing questions should be sent to ${legalConfig.supportEmail}. Until this field is configured, use the support page instructions and do not publish this document.`,
+    ],
+  },
+];
+
+export const prerender = true;
+---
+<LegalLayout title="Payment & Subscription Policy" description="Basic and Premium pricing, renewals, and entitlement rules." sections={sections} />

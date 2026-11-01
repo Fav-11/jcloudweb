@@ -1,0 +1,81 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { legalConfig } from '../../config/legal.js';
+
+const sections = [
+  {
+    title: 'Introduction',
+    paragraphs: [
+      'This Privacy Policy explains how J-Cloud (“we”, “us”, “our”) handles personal data in connection with the J-Cloud service, which lets you access and manage files on your own Windows computer using the J-Cloud Android application.',
+      'J-Cloud’s design keeps your file contents on your Windows computer. The online backend stores service-related metadata only — such as account credentials, device registrations and subscription status — and not the primary contents of your files.',
+    ],
+  },
+  {
+    title: 'Information we collect',
+    items: [
+      'Account data: email address, password hash and authentication tokens.',
+      'Device data: laptop and phone identifiers, registration status and revocation records.',
+      'Subscription data: plan, payment reference, expiry date and entitlement status.',
+      'Usage metadata: connection events, pairing records and error logs needed to operate the service.',
+    ],
+  },
+  {
+    title: 'How we use your data',
+    items: [
+      'To authenticate your account and authorize device access.',
+      'To enforce Basic and Premium subscription entitlements, including remote connectivity.',
+      'To operate pairing, device registration and revocation.',
+      'To prevent fraud, detect abuse and secure the service.',
+      'To communicate about your account and service changes.',
+    ],
+  },
+  {
+    title: 'Lawful basis (Nigeria)',
+    items: [
+      'Performance of a contract with you (the Terms of Service).',
+      'Compliance with a legal obligation under the Nigeria Data Protection Act 2023.',
+      'Our legitimate interest in operating and securing the service, where it does not override your rights.',
+      'Your consent, where you have given it for a specific purpose.',
+    ],
+  },
+  {
+    title: 'Data sharing',
+    items: [
+      'J-Cloud does not sell your personal data.',
+      'Service processors may handle authentication, payments or infrastructure on our behalf, under written instructions and data-protection terms.',
+      'We may disclose data where required by law, regulation, court order or to protect safety.',
+    ],
+  },
+  {
+    title: 'Your rights',
+    items: [
+      'Request access to your personal data.',
+      'Request correction or erasure of your personal data.',
+      'Object to or restrict processing.',
+      'Withdraw consent where processing is based on consent.',
+      'Lodge a complaint with the Nigeria Data Protection Commission.',
+    ],
+  },
+  {
+    title: 'International transfers',
+    paragraphs: [
+      'J-Cloud uses the Cloudflare Quick Tunnel infrastructure as a connectivity fallback. Depending on how that service is operated, data may be transferred outside Nigeria. Any such transfer is subject to safeguards under applicable data-protection law.',
+    ],
+  },
+  {
+    title: 'Retention',
+    paragraphs: [
+      'Personal data is retained only as long as needed for the purposes described, or as required by law. Account data is deleted or anonymized after account closure, subject to legal retention requirements.',
+    ],
+  },
+  {
+    title: 'Contact',
+    paragraphs: [
+      `Privacy requests should be sent to ${legalConfig.privacyEmail}. Until this field is configured, use the support page instructions and do not publish this document.`,
+    ],
+  },
+];
+
+export const prerender = true;
+---
+<LegalLayout title="Privacy Policy" description="Personal data, processing roles, lawful bases, and user rights." sections={sections} />

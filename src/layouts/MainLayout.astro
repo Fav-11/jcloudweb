@@ -1,0 +1,75 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../config/site.js';
+import '../styles/global.css';
+
+const {
+  title = siteConfig.title,
+  description = siteConfig.description,
+  image = '/images/j-cloud-logo.png',
+  noindex = false,
+  structuredData = null,
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? siteConfig.siteUrl);
+const fullTitle = title === siteConfig.title ? title : `${title} | ${siteConfig.name}`;
+const socialImage = new URL(image, Astro.site ?? siteConfig.siteUrl);
+---
+<!doctype html>
+<html lang="en-NG">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content={siteConfig.themeColor} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <Header />
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+    <script is:inline>
+      const mobileToggle = document.querySelector('[data-mobile-toggle]');
+      const mobileNav = document.querySelector('[data-mobile-nav]');
+      if (mobileToggle && mobileNav) {
+        const setOpen = (open) => {
+          mobileToggle.setAttribute('aria-expanded', String(open));
+          mobileNav.toggleAttribute('data-open', open);
+          document.body.classList.toggle('nav-open', open);
+        };
+        mobileToggle.addEventListener('click', () => setOpen(mobileToggle.getAttribute('aria-expanded') !== 'true'));
+        mobileNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+        document.addEventListener('keydown', (event) => { if (event.key === 'Escape') setOpen(false); });
+      }
+      const revealItems = document.querySelectorAll('[data-reveal]');
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) { entry.target.setAttribute('data-visible', ''); observer.unobserve(entry.target); }
+          });
+        }, { threshold: 0.12 });
+        revealItems.forEach((item) => observer.observe(item));
+      } else {
+        revealItems.forEach((item) => item.setAttribute('data-visible', ''));
+      }
+    </script>
+  </body>
+</html>

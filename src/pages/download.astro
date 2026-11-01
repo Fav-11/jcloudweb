@@ -1,0 +1,85 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { siteConfig } from '../config/site.js';
+import { downloads, isReleaseVerified } from '../config/downloads.js';
+import DownloadButton from '../components/DownloadButton.astro';
+import { Download, ShieldAlert, ExternalLink, GitBranch, Clock, Info } from '@lucide/astro';
+---
+
+<MainLayout title="Download J-Cloud Windows Server" description="Download the official J-Cloud Windows Server installer from GitHub Releases.">
+  <section class="section" style="padding-top: 40px;">
+    <div class="container narrow" data-reveal>
+      <p class="eyebrow">Windows Server</p>
+      <h1>Download J-Cloud for Windows</h1>
+      <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">The J-Cloud Windows Server runs on your computer and lets your phone access your personal files. The installer is distributed through GitHub Releases — J-Cloud never hosts a copy of the installer itself.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 340px; gap: 2rem;" data-reveal>
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1rem;">
+            <Download size={18} aria-hidden="true" />
+            <h2 style="font-size: 1.25rem; margin: 0;">J-Cloud Windows Server installer</h2>
+          </div>
+          <p style="color: var(--text-muted); margin-bottom: 1.25rem;">Installs the FastAPI-based laptop server that provides file browsing, upload, download, rename, delete and folder management, plus local pairing and session enforcement.</p>
+          <DownloadButton />
+          {!isReleaseVerified && (
+            <div style="margin-top: 1rem; padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);">
+              <p style="color: var(--text-dim); font-size: 0.9rem; margin: 0;"><strong>Release pending verification.</strong> The repository and installer asset have not yet been configured. No download link is active until a verified public GitHub release is supplied.</p>
+            </div>
+          )}
+        </div>
+        <aside style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; position: sticky; top: 1.25rem;">
+          <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 1rem;">
+            <GitBranch size={18} aria-hidden="true" style="color: var(--accent); flex-shrink: 0;" />
+            <div>
+              <div style="font-weight: 700; color: var(--text); font-size: 0.95rem;">Current version</div>
+              <div style="color: var(--text-muted); font-size: 0.9rem;">{downloads.displayVersion}</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 1rem;">
+            <Clock size={18} aria-hidden="true" style="color: var(--accent); flex-shrink: 0;" />
+            <div>
+              <div style="font-weight: 700; color: var(--text); font-size: 0.95rem;">Release date</div>
+              <div style="color: var(--text-muted); font-size: 0.9rem;">{downloads.releaseDate ?? 'Pending verification'}</div>
+            </div>
+          </div>
+          <hr style="border: none; border-top: 1px solid var(--border); margin: 1.25rem 0;" />
+          <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Supported Windows</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">{downloads.supportedWindows}</p>
+          <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Requirements</h3>
+          <ul style="color: var(--text-muted); font-size: 0.9rem; padding-left: 1.1rem; margin: 0;">
+            {downloads.installerRequirements.map((req) => <li key={req}>{req}</li>)}
+          </ul>
+          <div style="margin-top: 1rem; padding: 0.75rem; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm);">
+            <Info size={16} aria-hidden="true" style="color: var(--accent); flex-shrink: 0; margin-right: 8px;" />
+            <span style="color: var(--text-muted); font-size: 0.85rem;">Verifying the release prevents distribution of tampered installers.</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem;" data-reveal>
+        <h2 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Release notes</h2>
+        {downloads.releaseNotes.length > 0 ? (
+          <ul style="color: var(--text-muted); font-size: 0.9rem; padding-left: 1.1rem; margin: 0;">
+            {downloads.releaseNotes.map((note) => <li key={note}>{note}</li>)}
+          </ul>
+        ) : (
+          <p style="color: var(--text-dim); font-size: 0.9rem; margin: 0;">Release notes will appear here once a verified release is configured.</p>
+        )}
+        <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.75rem;">Full release history: {downloads.repository.releasesUrl ? (<a href={downloads.repository.releasesUrl} target="_blank" rel="noopener">GitHub Releases <ExternalLink size={14} aria-hidden="true" style="margin-left: 4px;" /></a>) : (<span style="color: var(--text-dim);">not yet configured</span>)}</p>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  aside h3 { margin-top: 0; }
+  aside hr { margin: 1rem 0; }
+</style>

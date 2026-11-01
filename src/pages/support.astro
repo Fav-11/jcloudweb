@@ -1,0 +1,67 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { siteConfig } from '../config/site.js';
+import { legalConfig } from '../config/legal.js';
+import { ShieldCheck, Mail, GitBranch, HelpCircle } from '@lucide/astro';
+---
+
+<MainLayout title="Support" description="J-Cloud support, troubleshooting and contact information.">
+  <section class="section" style="padding-top: 40px;">
+    <div class="container narrow" data-reveal>
+      <p class="eyebrow">Help</p>
+      <h1>Support</h1>
+      <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">Installation help, pairing issues, security reports and how to reach the J-Cloud team.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;" data-reveal>
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem;">
+          <h2 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Installation & pairing</h2>
+          <ul style="color: var(--text-muted); font-size: 0.9rem; padding-left: 1.1rem; margin: 0;">
+            <li style="margin-bottom: 0.5rem;"><a href="/installation">Read the installation guide</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="/download">Download the Windows Server</a></li>
+            <li style="margin-bottom: 0.5rem;">Confirm both phone and laptop are on the same network for LAN pairing.</li>
+            <li style="margin-bottom: 0;">Remote access requires a Premium subscription.</li>
+          </ul>
+        </div>
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem;">
+          <h2 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Security</h2>
+          <ul style="color: var(--text-muted); font-size: 0.9rem; padding-left: 1.1rem; margin: 0;">
+            <li style="margin-bottom: 0.5rem;">Pairing is laptop-authorized.</li>
+            <li style="margin-bottom: 0.5rem;">Devices can be revoked via the online backend.</li>
+            <li style="margin-bottom: 0;">Report concerns through the <a href="/legal/security">security disclosure policy</a>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem;" data-reveal>
+        <h2 style="font-size: 1.1rem; margin-bottom: 1rem;">Contact</h2>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; color: var(--text-muted); font-size: 0.95rem;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <Mail size={18} aria-hidden="true" />
+            <span>General support: <strong>{legalConfig.supportEmail}</strong></span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <ShieldCheck size={18} aria-hidden="true" />
+            <span>Security: <strong>{legalConfig.securityEmail}</strong></span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <HelpCircle size={18} aria-hidden="true" />
+            <span>Privacy: <strong>{legalConfig.privacyEmail}</strong></span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <GitBranch size={18} aria-hidden="true" />
+            <span>Complaints: <strong>{legalConfig.complaintsEmail}</strong></span>
+          </div>
+        </div>
+        <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 1rem;">Contact fields are placeholders until operator details are configured in src/config/legal.js.</p>
+      </div>
+    </div>
+  </section>
+</MainLayout>

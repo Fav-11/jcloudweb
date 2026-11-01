@@ -1,0 +1,125 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { siteConfig } from '../config/site.js';
+import { downloads } from '../config/downloads.js';
+import DownloadButton from '../components/DownloadButton.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import PricingCard from '../components/PricingCard.astro';
+import FAQ from '../components/FAQ.astro';
+import ArchitectureDiagram from '../components/ArchitectureDiagram.astro';
+import { Laptop, Smartphone, Cloud, ShieldCheck, Check, GitBranch } from '@lucide/astro';
+---
+
+<MainLayout title={siteConfig.name} description={siteConfig.description}>
+  <section class="hero" style="padding: 72px 0 48px 0;">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content" data-reveal>
+          <p class="eyebrow" style="margin-bottom: 16px;">Personal file access</p>
+          <h1 style="font-size: 3rem; line-height: 1.15; margin-bottom: 16px;">Your computer.<br>Your files.<br>Your cloud.</h1>
+          <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 460px; margin: 0 0 24px 0;">Access and manage your personal files remotely using your own Windows computer as your storage source. Your files stay on your machine — J-Cloud never hosts them.</p>
+          <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+            <DownloadButton compact />
+            <a class="button button-secondary" href="/how-it-works" style="text-decoration:none;">Explore J-Cloud <span aria-hidden="true">→</span></a>
+          </div>
+          <div style="margin-top: 28px; display: flex; gap: 16px; align-items: center; color: var(--text-dim); font-size: 0.9rem;">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--accent);"><Laptop size={20} aria-hidden="true" /></div>
+            <span>Windows Server</span>
+            <span style="color: var(--text-dim);">•</span>
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--accent);"><Smartphone size={20} aria-hidden="true" /></div>
+            <span>Flutter Android app</span>
+            <span style="color: var(--text-dim);">•</span>
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--accent);"><Cloud size={20} aria-hidden="true" /></div>
+            <span>Online control backend</span>
+          </div>
+        </div>
+        <div class="hero-visual" data-reveal style="--delay: 0.1s;">
+          <div style="position: relative; width: 100%; max-width: 520px; margin: 0 auto;">
+            <img src="/images/j-cloud-logo.png" alt="J-Cloud logo" style="width: 100%; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.6);" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 48px;">
+    <div class="container">
+      <div class="section-heading centered" data-reveal>
+        <p class="eyebrow">How J-Cloud works</p>
+        <h2>Three parts, one purpose</h2>
+        <p style="color: var(--text-muted);">Your laptop stores the files. Your phone accesses them. The online backend keeps accounts, devices and subscriptions in order.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;" data-reveal>
+        <FeatureCard icon={Laptop} title="Windows Server" href="/download" label="Download Windows Server">
+          Runs on your computer. Reaches your local files and enforces authorized sessions and pairing.
+        </FeatureCard>
+        <FeatureCard icon={Smartphone} title="Flutter mobile app" href="/how-it-works" label="Learn about the app">
+          Browse, upload, download, rename, delete and manage folders on your paired laptop.
+        </FeatureCard>
+        <FeatureCard icon={Cloud} title="Online backend" href="/how-it-works" label="About the backend">
+          Accounts, authentication, device registration, subscriptions and entitlement.
+        </FeatureCard>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 48px;">
+    <div class="container">
+      <div class="section-heading centered" data-reveal>
+        <p class="eyebrow">Architecture</p>
+        <h2>Local storage, secure access</h2>
+        <p style="color: var(--text-muted);">J-Cloud is personal cloud storage — your Windows computer is the primary storage location, not a remote server farm.</p>
+      </div>
+      <ArchitectureDiagram />
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 48px;">
+    <div class="container">
+      <div class="section-heading centered" data-reveal>
+        <p class="eyebrow">Key features</p>
+        <h2>Everything you need to manage your files</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;" data-reveal>
+        <FeatureCard icon={Check} title="File management" href="/how-it-works" label="Learn more">
+          Browse, upload, download, rename, delete and organize folders on your laptop.
+        </FeatureCard>
+        <FeatureCard icon={ShieldCheck} title="Local pairing" href="/how-it-works" label="Learn more">
+          Pair your phone to your laptop over your local network with authorized sessions.
+        </FeatureCard>
+        <FeatureCard icon={Cloud} title="Premium remote access" href="/pricing" label="See plans">
+          Access your files from anywhere through the J-Cloud relay (Premium only).
+        </FeatureCard>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 48px; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-heading centered" data-reveal>
+        <p class="eyebrow">Simple, transparent pricing</p>
+        <h2>Choose your plan</h2>
+        <p style="color: var(--text-muted);">One-time Windows Server download. Subscriptions control remote access and entitlements.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;" data-reveal>
+        <PricingCard name="Free" price="0" cadence="/mo" summary="Local LAN access, one laptop." benefits={['Local network file access', 'File browse, upload, download, rename, delete', 'One paired laptop', 'Windows Server included']} excluded={['Remote access outside LAN', 'Relay infrastructure', 'Priority support']} />
+        <PricingCard name="Basic" price="499" cadence="/mo" summary="Local access for multiple devices." benefits={['Local network file access', 'File browse, upload, download, rename, delete', 'Multiple paired devices', 'Standard support']} excluded={['Remote access outside LAN', 'Relay infrastructure', 'Priority support']} featured />
+        <PricingCard name="Premium" price="999" cadence="/mo" summary="Remote access from anywhere." benefits={['Local network file access', 'Remote access via J-Cloud relay', 'Multiple paired devices', 'Priority support', 'Subscription management']} excluded={[]} />
+      </div>
+      <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-top: 1rem;">₦ = Nigerian Naira. Pricing is draft and must be confirmed against the online backend before publication.</p>
+    </div>
+  </section>
+
+  <FAQ items={[
+    { question: 'Does J-Cloud store my files in its own cloud?', answer: 'No. Your files remain on your own Windows computer. J-Cloud’s online backend stores only service metadata such as accounts, device registrations and subscription entitlements.' },
+    { question: 'What is the Windows Server for?', answer: 'It is the application you install on your Windows computer. It reaches your local files, handles pairing and sessions, and lets your phone browse and manage them.' },
+    { question: 'Is remote access free?', answer: 'No. Remote connectivity through the J-Cloud relay (with Cloudflare Quick Tunnel as a fallback) is a Premium-only feature.' },
+    { question: 'Where do I get the Windows installer?', answer: 'The installer is distributed through GitHub Releases. The download page links directly to the verified release asset once the repository is configured.' },
+    { question: 'Which platforms are supported?', answer: 'The Windows Server runs on Windows. The client is a Flutter application for Android. Local access works over LAN; remote access requires Premium.' },
+  ]} heading="Frequently asked questions" />
+</MainLayout>
+
+<style>
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr; gap: 2rem; } .hero h1 { font-size: 2.25rem; } }
+</style>

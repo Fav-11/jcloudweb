@@ -1,0 +1,38 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { legalConfig } from '../../config/legal.js';
+
+const sections = [
+  {
+    title: 'Policy',
+    paragraphs: [
+      'J-Cloud is provided for personal file access and management. You must use the service in a safe, lawful and responsible manner. This Acceptable Use Policy describes prohibited conduct.',
+    ],
+  },
+  {
+    title: 'Prohibited uses',
+    items: [
+      'Accessing files or devices you do not own or are not authorized to manage.',
+      'Storing or sharing unlawful, infringing, defamatory, violent or harmful content.',
+      'Attempting to bypass authentication, pairing, subscription enforcement or device revocation.',
+      'Interfering with, reverse engineering or attacking the online backend, relay or any J-Cloud infrastructure.',
+      'Using the service to distribute malware or conduct fraud.',
+    ],
+  },
+  {
+    title: 'Enforcement',
+    paragraphs: [
+      'J-Cloud may investigate suspected violations, suspend or terminate accounts, revoke devices and report illegal activity to law enforcement where appropriate.',
+    ],
+  },
+  {
+    title: 'Reporting violations',
+    paragraphs: [
+      `Report concerns to ${legalConfig.securityEmail} or ${legalConfig.supportEmail}. Until these fields are configured, use the support page instructions and do not publish this document.`,
+    ],
+  },
+];
+
+export const prerender = true;
+---
+<LegalLayout title="Acceptable Use Policy" description="Safe, lawful, and responsible use of J-Cloud." sections={sections} />

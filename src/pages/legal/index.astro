@@ -1,0 +1,30 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { legalConfig, legalDocuments } from '../../config/legal.js';
+---
+
+<MainLayout title="Legal & Policies" description="J-Cloud draft legal documents and operational policies. For review — not yet approved for publication.">
+  <section class="section" style="padding-top: 40px; padding-bottom: 24px;">
+    <div class="container narrow" data-reveal>
+      <p class="eyebrow">Legal & Policies</p>
+      <h1>Legal & Policies</h1>
+      <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1rem;">Working drafts prepared for J-Cloud. These documents require review and approval by a qualified Nigerian legal adviser before production publication.</p>
+      <div style="padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1.5rem;">
+        <strong>Draft for review.</strong> {legalConfig.regulatoryStatusNotice}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;" data-reveal>
+        {legalDocuments.map((doc) => (
+          <a href={doc.href} class="feature-card" style="text-decoration: none; color: inherit; display: block;">
+            <h3 style="font-size: 1rem; margin-bottom: 0.4rem; color: var(--text);">{doc.title}</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">{doc.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,34 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { legalConfig } from '../../config/legal.js';
+
+const sections = [
+  {
+    title: 'Refund policy',
+    paragraphs: [
+      'J-Cloud paid subscriptions are generally non-refundable once a billing period has started. You retain access until the end of the period you paid for.',
+    ],
+  },
+  {
+    title: 'Refund review',
+    paragraphs: [
+      'In exceptional cases — such as a failed payment, duplicate charge or service outage that prevents access — you may request a refund review. Requests are assessed individually and are not guaranteed.',
+    ],
+  },
+  {
+    title: 'How to request',
+    paragraphs: [
+      `Send your request to ${legalConfig.supportEmail} with your account email, the date and amount of the charge, and a description of the issue. Until this field is configured, use the support page instructions and do not publish this document.`,
+    ],
+  },
+  {
+    title: 'Cancellation',
+    paragraphs: [
+      'You may cancel your subscription at any time through the online backend. Cancellation takes effect at the end of the current paid period.',
+    ],
+  },
+];
+
+export const prerender = true;
+---
+<LegalLayout title="Refund & Cancellation Policy" description="Cancellation, failed payments, and refund review procedures." sections={sections} />

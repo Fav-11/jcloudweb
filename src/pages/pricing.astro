@@ -1,0 +1,57 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { siteConfig } from '../config/site.js';
+import PricingCard from '../components/PricingCard.astro';
+import FAQ from '../components/FAQ.astro';
+import { Crown, ShieldCheck, Laptop, Smartphone, Clock } from '@lucide/astro';
+---
+
+<MainLayout title="Pricing" description="J-Cloud subscription plans: Basic local access and Premium remote access.">
+  <section class="section" style="padding-top: 40px;">
+    <div class="container narrow" data-reveal>
+      <p class="eyebrow">Subscription plans</p>
+      <h1>Simple, transparent pricing</h1>
+      <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">The Windows Server download is free. Subscriptions control remote access and the number of paired devices. ₦ = Nigerian Naira.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;" data-reveal>
+        <PricingCard name="Free" price="0" cadence="/mo" summary="Local LAN access, one laptop." benefits={['Local network file access', 'File browse, upload, download, rename, delete', 'One paired laptop', 'Windows Server included']} excluded={['Remote access outside LAN', 'J-Cloud relay', 'Priority support']} />
+        <PricingCard name="Basic" price="499" cadence="/mo" summary="Local access for multiple devices." benefits={['Local network file access', 'File browse, upload, download, rename, delete', 'Multiple paired devices', 'Standard support']} excluded={['Remote access outside LAN', 'J-Cloud relay', 'Priority support']} featured />
+        <PricingCard name="Premium" price="999" cadence="/mo" summary="Remote access from anywhere." benefits={['Local network file access', 'Remote access via J-Cloud relay', 'Multiple paired devices', 'Priority support', 'Subscription management']} excluded={[]} />
+      </div>
+      <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-top: 1rem;">Pricing is draft and must be confirmed against the online backend before publication. Remote connectivity uses the J-Cloud relay with Cloudflare Quick Tunnel as a fallback (Premium only).</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;" data-reveal>
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center;">
+          <Laptop size={32} aria-hidden="true" style="color: var(--accent); margin-bottom: 1rem;" />
+          <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Windows Server</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Free download. Runs on your computer. Your files stay here.</p>
+        </div>
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center;">
+          <Smartphone size={32} aria-hidden="true" style="color: var(--accent); margin-bottom: 1rem;" />
+          <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Android app</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Browse and manage your paired laptop’s files.</p>
+        </div>
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center;">
+          <ShieldCheck size={32} aria-hidden="true" style="color: var(--accent); margin-bottom: 1rem;" />
+          <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Relay (Premium)</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Remote connectivity from anywhere. Not file hosting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQ items={[
+    { question: 'Is the Windows Server free?', answer: 'Yes. Downloading and installing the J-Cloud Windows Server is free. Subscriptions apply to remote access and device limits.' },
+    { question: 'What does Premium include?', answer: 'Premium adds remote access to your files from anywhere through the J-Cloud relay (with Cloudflare Quick Tunnel as a fallback), multiple paired devices, and priority support.' },
+    { question: 'Can I change or cancel my plan?', answer: 'Yes. Subscription changes and cancellations are managed through the online backend. See the Payment & Subscription Policy and Refund & Cancellation Policy.' },
+    { question: 'Are prices final?', answer: 'No. The amounts shown are draft figures and must be confirmed against the online backend before publication.' },
+  ]} heading="Questions about pricing" />
+</MainLayout>

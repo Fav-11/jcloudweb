@@ -1,0 +1,87 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { siteConfig } from '../config/site.js';
+import { Check, AlertTriangle, Laptop, Download } from '@lucide/astro';
+---
+
+<MainLayout title="Installation guide" description="Step-by-step instructions to install the J-Cloud Windows Server and pair your phone.">
+  <section class="section" style="padding-top: 40px;">
+    <div class="container narrow" data-reveal>
+      <p class="eyebrow">Get started</p>
+      <h1>Installation guide</h1>
+      <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">Install the J-Cloud Windows Server on your computer, then pair your Android phone to access your files locally or remotely (Premium).</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem;" data-reveal>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.75rem;">
+          <Laptop size={18} aria-hidden="true" />
+          <h2 style="font-size: 1.1rem; margin: 0;">Before you install</h2>
+        </div>
+        <ul style="color: var(--text-muted); font-size: 0.95rem; padding-left: 1.1rem; margin: 0;">
+          <li style="margin-bottom: 0.5rem;">A Windows computer on which J-Cloud will run.</li>
+          <li style="margin-bottom: 0.5rem;">Administrator permission when prompted by Windows.</li>
+          <li style="margin-bottom: 0.5rem;">An internet connection for installation, pairing, and remote access.</li>
+          <li style="margin-bottom: 0;">Sufficient local storage for the files you intend to access.</li>
+        </ul>
+      </div>
+
+      <ol style="color: var(--text-muted); font-size: 0.95rem; padding-left: 1.3rem; margin: 0 0 1.5rem 0;" data-reveal>
+        <li style="margin-bottom: 1rem;">
+          <strong>Download the installer.</strong> Get the current Windows Server installer from the <a href="/download">download page</a>. The asset is hosted on GitHub Releases.
+        </li>
+        <li style="margin-bottom: 1rem;">
+          <strong>Run the installer.</strong> Execute the downloaded package and approve the Windows administrator prompt when it appears.
+        </li>
+        <li style="margin-bottom: 1rem;">
+          <strong>Complete setup.</strong> Follow the installer prompts to finish installation. The Windows Server will register as a local service.
+        </li>
+        <li style="margin-bottom: 1rem;">
+          <strong>Pair your phone.</strong> Open the J-Cloud Android app and follow the pairing flow to authorize it to access this laptop.
+        </li>
+        <li style="margin-bottom: 0;">
+          <strong>Connect.</strong> On the same network, files are available over LAN. For remote access, subscribe to Premium and connect through the J-Cloud relay.
+        </li>
+      </ol>
+
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem;" data-reveal>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.75rem;">
+          <Download size={18} aria-hidden="true" style="color: var(--accent); flex-shrink: 0;" />
+          <h2 style="font-size: 1.1rem; margin: 0;">Download the installer</h2>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">The Windows Server installer is distributed exclusively through GitHub Releases. J-Cloud does not host the installer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;" data-reveal>
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem;">
+          <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.75rem;">
+            <Check size={18} aria-hidden="true" style="color: var(--accent); flex-shrink: 0;" />
+            <h2 style="font-size: 1.1rem; margin: 0;">Security information</h2>
+          </div>
+          <ul style="color: var(--text-muted); font-size: 0.9rem; padding-left: 1.1rem; margin: 0;">
+            <li style="margin-bottom: 0.5rem;">Pairing authorizes one phone to one laptop.</li>
+            <li style="margin-bottom: 0.5rem;">Sessions are enforced laptop-side.</li>
+            <li style="margin-bottom: 0;">Devices can be revoked through the online backend.</li>
+          </ul>
+        </div>
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem;">
+          <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.75rem;">
+            <AlertTriangle size={18} aria-hidden="true" style="color: #f59e0b; flex-shrink: 0;" />
+            <h2 style="font-size: 1.1rem; margin: 0;">Troubleshooting</h2>
+          </div>
+          <ul style="color: var(--text-muted); font-size: 0.9rem; padding-left: 1.1rem; margin: 0;">
+            <li style="margin-bottom: 0.5rem;"><strong>Installer blocked:</strong> Allow the app through Windows SmartScreen if you trust the source.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Phone cannot find laptop:</strong> Confirm both devices are on the same network and that the laptop server is running.</li>
+            <li style="margin-bottom: 0;"><strong>Pairing fails:</strong> Verify your account is active in the online backend and retry pairing.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,18 @@
+---
+import { Check, X } from '@lucide/astro';
+const { name, price, cadence, summary, benefits, excluded = [], featured = false } = Astro.props;
+---
+<article class:list={['pricing-card', { featured }]} data-reveal>
+  {featured && <div class="popular-label">Most capable</div>}
+  <div class="plan-head">
+    <p class="eyebrow">{name}</p>
+    <div class="plan-price"><span>₦</span>{price}</div>
+    <p class="plan-cadence">{cadence}</p>
+    <p class="plan-summary">{summary}</p>
+  </div>
+  <ul class="plan-benefits">
+    {benefits.map((item) => <li><Check size={17} aria-hidden="true" /><span>{item}</span></li>)}
+    {excluded.map((item) => <li class="excluded"><X size={17} aria-hidden="true" /><span>{item}</span></li>)}
+  </ul>
+  <a class:list={['button', featured ? 'button-primary' : 'button-secondary', 'button-block']} href="/download">Get started with J-Cloud</a>
+</article>

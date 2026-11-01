@@ -1,0 +1,49 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { legalConfig } from '../../config/legal.js';
+
+const sections = [
+  {
+    title: 'Licence grant',
+    paragraphs: [
+      'Subject to these terms, J-Cloud grants you a limited, non-exclusive, non-transferable, revocable licence to install and use the J-Cloud Windows Server on a Windows computer you own or control, and to use the J-Cloud Android application to access that computer’s files.',
+    ],
+  },
+  {
+    title: 'Restrictions',
+    items: [
+      'Do not reverse engineer, decompile or modify the software.',
+      'Do not distribute the software or installer to third parties.',
+      'Do not attempt to bypass authentication, subscription enforcement or device authorization.',
+      'Do not use the software for unlawful purposes.',
+    ],
+  },
+  {
+    title: 'Ownership',
+    paragraphs: [
+      'J-Cloud and its licensors own the software, documentation, related trademarks and intellectual property. This licence does not transfer ownership to you.',
+    ],
+  },
+  {
+    title: 'Updates',
+    paragraphs: [
+      'J-Cloud may provide updates to the Windows Server or mobile application. Updates may be required to continue using the service and are subject to this EULA.',
+    ],
+  },
+  {
+    title: 'Termination',
+    paragraphs: [
+      'Your licence ends automatically if you breach these terms. Upon termination you must stop using and uninstall the software.',
+    ],
+  },
+  {
+    title: 'Contact',
+    paragraphs: [
+      `Questions should be sent to ${legalConfig.supportEmail}. Until this field is configured, use the support page instructions and do not publish this document.`,
+    ],
+  },
+];
+
+export const prerender = true;
+---
+<LegalLayout title="End User Licence Agreement" description="Licence terms for the Windows Server and mobile application." sections={sections} />

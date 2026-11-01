@@ -1,0 +1,54 @@
+---
+import MainLayout from './MainLayout.astro';
+import { legalConfig, legalDocuments } from '../config/legal.js';
+const { title, description, sections = [], updated = legalConfig.lastUpdated, effective = legalConfig.effectiveDate } = Astro.props;
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+---
+<MainLayout title={title} description={description}>
+  <div class="legal-page">
+    <div class="container legal-layout">
+      <aside class="legal-sidebar">
+        <p class="nav-label">Legal & Policies</p>
+        <nav aria-label="Legal documents">
+          {legalDocuments.map((doc) => <a href={doc.href} class:list={{ active: Astro.url.pathname === doc.href }}>{doc.title}</a>)}
+        </nav>
+      </aside>
+      <article class="legal-document">
+        <div class="draft-notice" role="note">
+          <strong>Draft for review</strong>
+          <p>These documents are working drafts prepared for J-Cloud. They require review and approval by a qualified Nigerian legal adviser before production publication.</p>
+        </div>
+        <header class="legal-header">
+          <p class="eyebrow">J-Cloud legal & policies</p>
+          <h1>{title}</h1>
+          {description && <p class="legal-lead">{description}</p>}
+          <dl class="document-meta">
+            <div><dt>Effective date</dt><dd>{effective}</dd></div>
+            <div><dt>Last updated</dt><dd>{updated}</dd></div>
+            <div><dt>Jurisdiction</dt><dd>{legalConfig.jurisdiction}</dd></div>
+            <div><dt>Operator</dt><dd>{legalConfig.operatorName}</dd></div>
+          </dl>
+        </header>
+        <div class="legal-toc">
+          <p>On this page</p>
+          <ol>{sections.map((section) => <li><a href={`#${section.id}`}>{section.title}</a></li>)}</ol>
+        </div>
+        <div class="legal-content">
+          {sections.map((section, index) => (
+            <section id={section.id}>
+              <h2><span>{String(index + 1).padStart(2, '0')}</span>{section.title}</h2>
+              {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+              {section.items && <ul>{section.items.map((item) => <li>{item}</li>)}</ul>}
+              {section.subsections?.map((sub) => <><h3>{sub.title}</h3>{sub.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}{sub.items && <ul>{sub.items.map((item) => <li>{item}</li>)}</ul>}</>)}
+            </section>
+          ))}
+        </div>
+        <section class="legal-contact">
+          <h2>Contact</h2>
+          <p>Questions about this document should be sent to <strong>{legalConfig.supportEmail}</strong>. Privacy requests should be sent to <strong>{legalConfig.privacyEmail}</strong>. Until these fields are configured, use the support page instructions and do not publish this document.</p>
+          <p class="fine-print">Last updated: {updated}. {legalConfig.regulatoryStatusNotice}</p>
+        </section>
+      </article>
+    </div>
+  </div>
+</MainLayout>

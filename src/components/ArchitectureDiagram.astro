@@ -1,0 +1,29 @@
+---
+import { Cloud, CloudCog, Laptop, ShieldCheck, Smartphone } from '@lucide/astro';
+---
+<div class="architecture" data-reveal aria-label="J-Cloud architecture diagram">
+  <div class="architecture-node phone-node">
+    <div class="node-icon"><Smartphone size={27} aria-hidden="true" /></div>
+    <div><span class="node-kicker">01 · Access</span><h3>J-Cloud mobile app</h3><p>Browse, upload, download, rename, delete, and manage folders on your paired laptop.</p></div>
+  </div>
+  <div class="architecture-connection">
+    <span>LAN</span><span class="connection-line"></span><span class="connection-label">Premium: remote route</span>
+  </div>
+  <div class="architecture-node laptop-node">
+    <div class="node-icon"><Laptop size={27} aria-hidden="true" /></div>
+    <div><span class="node-kicker">02 · Storage & access</span><h3>Windows Server</h3><p>Runs on your computer, reaches your local files, and enforces authorized sessions and pairing.</p><strong>Your files stay here.</strong></div>
+  </div>
+  <div class="architecture-connection secondary">
+    <span class="connection-label">Control plane</span><span class="connection-line"></span><span>Authorized traffic</span>
+  </div>
+  <div class="architecture-split">
+    <div class="architecture-node">
+      <div class="node-icon"><ShieldCheck size={25} aria-hidden="true" /></div>
+      <div><span class="node-kicker">03 · Control</span><h3>Online backend</h3><p>Accounts, authentication, devices, subscriptions, payments, and entitlement.</p></div>
+    </div>
+    <div class="architecture-node">
+      <div class="node-icon"><CloudCog size={25} aria-hidden="true" /></div>
+      <div><span class="node-kicker">Premium route</span><h3>J-Cloud relay</h3><p>Facilitates remote connectivity. It is not the primary location of your files.</p></div>
+    </div>
+  </div>
+</div>

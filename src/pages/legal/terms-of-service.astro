@@ -1,0 +1,58 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { legalConfig } from '../../config/legal.js';
+
+const sections = [
+  {
+    title: 'Agreement',
+    paragraphs: [
+      'These Terms of Service (“Terms”) govern your use of the J-Cloud service, including the Windows Server, the Android application and the online control backend. By installing or using J-Cloud you agree to these Terms and the End User Licence Agreement.',
+      'If you do not agree, do not install or use the service.',
+    ],
+  },
+  {
+    title: 'Eligibility',
+    items: [
+      'You must be at least 13 years old (or the applicable minimum age in your jurisdiction).',
+      'You must have the right to install software on the Windows computer where the server runs.',
+      'Use of the service is subject to these Terms and applicable Nigerian law.',
+    ],
+  },
+  {
+    title: 'Your responsibilities',
+    items: [
+      'Keep your account credentials secure.',
+      'Only pair devices you own or are authorized to manage.',
+      'Do not use J-Cloud to access, store or share unlawful content.',
+      'Comply with the Acceptable Use Policy.',
+    ],
+  },
+  {
+    title: 'Subscriptions',
+    paragraphs: [
+      'Remote connectivity and Premium features require an active subscription. Fees, billing and renewal are described in the Payment & Subscription Policy. J-Cloud may change pricing with notice; continued use constitutes acceptance.',
+    ],
+  },
+  {
+    title: 'Termination',
+    paragraphs: [
+      'You may cancel your subscription at any time through the online backend. J-Cloud may suspend or terminate access for breach of these Terms, fraud, or security concerns. Upon termination, your right to use the service ends immediately.',
+    ],
+  },
+  {
+    title: 'Governing law',
+    paragraphs: [
+      'These Terms are governed by the laws of the Federal Republic of Nigeria. Disputes are subject to the exclusive jurisdiction of the courts of Nigeria, unless applicable law provides otherwise.',
+    ],
+  },
+  {
+    title: 'Contact',
+    paragraphs: [
+      `Questions should be sent to ${legalConfig.supportEmail}. Until this field is configured, use the support page instructions and do not publish this document.`,
+    ],
+  },
+];
+
+export const prerender = true;
+---
+<LegalLayout title="Terms of Service" description="The agreement governing use of the J-Cloud service." sections={sections} />

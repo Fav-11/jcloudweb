@@ -1,0 +1,37 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { legalConfig } from '../../config/legal.js';
+
+const sections = [
+  {
+    title: 'Support channels',
+    paragraphs: [
+      'J-Cloud provides support through email and the online backend. General questions, billing questions, installation help and pairing issues should be directed to the support contact.',
+    ],
+  },
+  {
+    title: 'How to complain',
+    paragraphs: [
+      `Submit a complaint to ${legalConfig.complaintsEmail}. Include your account email, a clear description of the issue, when it occurred, and any steps you have already taken. Until this field is configured, use the support page instructions and do not publish this document.`,
+    ],
+  },
+  {
+    title: 'Handling',
+    items: [
+      'Complaints are acknowledged within a reasonable time.',
+      'Each complaint is assigned a reference and investigated by the appropriate team.',
+      'You receive a response explaining the outcome and any next steps.',
+      'If you are not satisfied, you may escalate and request a review.',
+    ],
+  },
+  {
+    title: 'Regulatory complaints',
+    paragraphs: [
+      'If you believe J-Cloud has violated applicable Nigerian law, including data-protection law, you may lodge a complaint with the Nigeria Data Protection Commission or another competent authority, without prejudice to any other remedy.',
+    ],
+  },
+];
+
+export const prerender = true;
+---
+<LegalLayout title="Support & Complaints Policy" description="Support channels, escalation, and complaint handling." sections={sections} />

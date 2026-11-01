@@ -1,0 +1,19 @@
+---
+import { Download, ExternalLink, ShieldAlert } from '@lucide/astro';
+import { downloads, isReleaseVerified } from '../config/downloads.js';
+const { compact = false } = Astro.props;
+---
+{isReleaseVerified ? (
+  <a class:list={['button', compact ? 'button-small' : 'button-primary', 'download-button']} href={downloads.directInstallerUrl} download data-download-button>
+    <Download size={18} aria-hidden="true" />
+    <span>Download for Windows</span>
+    <small>{downloads.displayVersion}</small>
+  </a>
+) : (
+  <div class="download-unverified" data-download-button>
+    <a class:list={['button', compact ? 'button-small' : 'button-primary', 'button-disabled']} aria-disabled="true" tabindex="-1">
+      <ShieldAlert size={18} aria-hidden="true" /><span>Installer awaiting verification</span>
+    </a>
+    <p>No installer is linked until the official GitHub release is verified.</p>
+  </div>
+)}
