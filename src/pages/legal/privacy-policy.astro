@@ -1,77 +1,359 @@
 ---
 import LegalLayout from '../../layouts/LegalLayout.astro';
-import { legalConfig } from '../../config/legal.js';
 
 const sections = [
   {
-    title: 'Introduction',
+    title: '1. Introduction',
     paragraphs: [
-      'This Privacy Policy explains how J-Cloud (“we”, “us”, “our”) handles personal data in connection with the J-Cloud service, which lets you access and manage files on your own Windows computer using the J-Cloud Android application.',
-      'J-Cloud’s design keeps your file contents on your Windows computer. The online backend stores service-related metadata only — such as account credentials, device registrations and subscription status — and not the primary contents of your files.',
+      'Welcome to J-Cloud.',
+      'J-Cloud is a personal cloud-storage access system that allows users to access and manage files stored on their own Windows computers through a Flutter mobile application.',
+      'Your Windows laptop remains the primary storage location for your files. J-Cloud\'s online backend manages accounts, authentication, registered devices, subscriptions, payment verification, usage limits and remote-access eligibility.',
+      'This Privacy Policy explains what information we collect, why we collect it, how we use and protect it, when it may be shared, how long it may be retained and what rights you may have regarding your personal information.',
+      'By creating an account or using J-Cloud, you acknowledge that you have had the opportunity to read this Policy.',
     ],
   },
   {
-    title: 'Information we collect',
-    items: [
-      'Account data: email address, password hash and authentication tokens.',
-      'Device data: laptop and phone identifiers, registration status and revocation records.',
-      'Subscription data: plan, payment reference, expiry date and entitlement status.',
-      'Usage metadata: connection events, pairing records and error logs needed to operate the service.',
-    ],
-  },
-  {
-    title: 'How we use your data',
-    items: [
-      'To authenticate your account and authorize device access.',
-      'To enforce Basic and Premium subscription entitlements, including remote connectivity.',
-      'To operate pairing, device registration and revocation.',
-      'To prevent fraud, detect abuse and secure the service.',
-      'To communicate about your account and service changes.',
-    ],
-  },
-  {
-    title: 'Lawful basis (Nigeria)',
-    items: [
-      'Performance of a contract with you (the Terms of Service).',
-      'Compliance with a legal obligation under the Nigeria Data Protection Act 2023.',
-      'Our legitimate interest in operating and securing the service, where it does not override your rights.',
-      'Your consent, where you have given it for a specific purpose.',
-    ],
-  },
-  {
-    title: 'Data sharing',
-    items: [
-      'J-Cloud does not sell your personal data.',
-      'Service processors may handle authentication, payments or infrastructure on our behalf, under written instructions and data-protection terms.',
-      'We may disclose data where required by law, regulation, court order or to protect safety.',
-    ],
-  },
-  {
-    title: 'Your rights',
-    items: [
-      'Request access to your personal data.',
-      'Request correction or erasure of your personal data.',
-      'Object to or restrict processing.',
-      'Withdraw consent where processing is based on consent.',
-      'Lodge a complaint with the Nigeria Data Protection Commission.',
-    ],
-  },
-  {
-    title: 'International transfers',
+    title: '2. Who Operates J-Cloud?',
     paragraphs: [
-      'J-Cloud uses the Cloudflare Quick Tunnel infrastructure as a connectivity fallback. Depending on how that service is operated, data may be transferred outside Nigeria. Any such transfer is subject to safeguards under applicable data-protection law.',
+      'J-Cloud is currently operated by an individual.',
+      "Operator's full legal name: [To be inserted]",
+      'Contact email: jtech.gbl@gmail.com',
+      'Website: https://jcloudweb.jtechcloud.workers.dev',
+      'Contact address: [To be inserted]',
+      "References to \"J-Cloud\", \"we\", \"us\" or \"our\" mean the operator of the J-Cloud service.",
+      'J-Cloud is not represented in this Policy as a registered company unless and until that status is confirmed.',
     ],
   },
   {
-    title: 'Retention',
+    title: '3. Information We Collect',
     paragraphs: [
-      'Personal data is retained only as long as needed for the purposes described, or as required by law. Account data is deleted or anonymized after account closure, subject to legal retention requirements.',
+      'We collect or process information necessary to provide, secure and maintain J-Cloud.',
+    ],
+    subsections: [
+      {
+        title: '3.1 Account Information',
+        items: [
+          'Email address.',
+          'Account identifier.',
+          'Registration date.',
+          'Account status.',
+          'Account preferences and settings.',
+        ],
+      },
+      {
+        title: '3.2 Authentication and Security Information',
+        items: [
+          'Authentication and token records.',
+          'Protected credential representations.',
+          'Login and authentication timestamps.',
+          'Session status.',
+          'Failed authentication attempts.',
+          'Security and access-control events.',
+        ],
+        paragraphs: [
+          'We do not intend to expose passwords, refresh tokens, relay tokens or encryption keys through ordinary logs or user-facing responses.',
+        ],
+      },
+      {
+        title: '3.3 Device Information',
+        items: [
+          'Registered laptop identifiers.',
+          'Registered mobile-device identifiers.',
+          'Device names and relevant metadata.',
+          'Pairing information.',
+          'Device registration and revocation status.',
+          'Connection timestamps.',
+        ],
+        paragraphs: [
+          'This information helps us identify authorised devices and prevent unauthorised access.',
+        ],
+      },
+      {
+        title: '3.4 Subscription and Trial Information',
+        items: [
+          'Basic or Premium plan status.',
+          'Trial eligibility.',
+          'Trial start and expiry timestamps.',
+          'Subscription activation and expiry dates.',
+          'Usage records.',
+          'Account restrictions and entitlement changes.',
+        ],
+      },
+      {
+        title: '3.5 Payment Information',
+        items: [
+          'Payment transaction references.',
+          'Payment amount and currency.',
+          'Payment provider.',
+          'Purchased plan.',
+          'Transaction status.',
+          'Payment verification records.',
+          'Refund and dispute information.',
+        ],
+        paragraphs: [
+          'Payments are processed through Paystack or another payment provider expressly identified during checkout.',
+          'The actual handling of card information depends on the payment provider\'s integration. J-Cloud does not intend to store complete payment-card details.',
+        ],
+      },
+      {
+        title: '3.6 Connection and Technical Information',
+        items: [
+          'Connection timestamps.',
+          'Relay session identifiers.',
+          'Device and account references.',
+          'Connection status.',
+          'Network metadata.',
+          'Failed connection attempts.',
+          'Application and server errors.',
+          'Technical diagnostics.',
+        ],
+        paragraphs: [
+          'We may process limited technical information required to operate and secure J-Cloud, including:',
+        ],
+      },
+      {
+        title: '3.7 Support Information',
+        paragraphs: [
+          'If you contact us, we may retain your email address, support correspondence, reported errors and information you voluntarily provide to resolve your request.',
+          'Please do not send passwords, access tokens, encryption keys or other authentication secrets to support.',
+        ],
+      },
     ],
   },
   {
-    title: 'Contact',
+    title: '4. Files Stored on Your Laptop',
     paragraphs: [
-      `Privacy requests should be sent to ${legalConfig.privacyEmail}. Until this field is configured, use the support page instructions and do not publish this document.`,
+      'J-Cloud is designed differently from conventional cloud-storage services.',
+      'Your files remain stored on your own Windows laptop. The laptop server handles authorised file operations, while the online backend manages accounts and access permissions.',
+      'The J-Cloud relay is designed to forward end-to-end encrypted traffic rather than store or directly access your files.',
+      'We do not claim ownership of your files merely because you use J-Cloud.',
+      'Account information, device records and connection metadata may still be processed by our online services.',
+      'Temporary transfer buffers, diagnostic information or application caches may be created where required by the software. Their actual handling depends on the implementation.',
+    ],
+  },
+  {
+    title: '5. Why We Process Your Information',
+    items: [
+      'Creating and managing user accounts.',
+      'Authenticating users.',
+      'Registering and securing devices.',
+      'Establishing authorised connections.',
+      'Providing file-access functionality.',
+      'Managing subscriptions and free trials.',
+      'Verifying payments.',
+      'Applying usage limits and account restrictions.',
+      'Preventing fraud, abuse and unauthorised access.',
+      'Troubleshooting errors and improving reliability.',
+      'Responding to support requests.',
+      'Complying with legal obligations.',
+      'Establishing, exercising or defending legal claims.',
+    ],
+    paragraphs: [
+      'We will not use personal information for unrelated purposes without an appropriate legal basis.',
+    ],
+  },
+  {
+    title: '6. Legal Basis for Processing',
+    items: [
+      'Performance of a contract or steps requested before entering a contract.',
+      'Compliance with legal obligations.',
+      'Legitimate interests, where permitted and appropriately balanced against individual rights.',
+      'Consent, where consent is the applicable legal basis.',
+    ],
+    paragraphs: [
+      'Where processing relies on consent, you may withdraw that consent subject to applicable legal and operational requirements.',
+    ],
+  },
+  {
+    title: '7. Third-Party Services',
+    paragraphs: [
+      'J-Cloud relies on or may rely on third-party providers to operate its services.',
+      'These may include:',
+      'These providers may process information according to their own contractual obligations and privacy policies.',
+      'We will seek to use appropriate safeguards when engaging providers that process personal information on our behalf.',
+      'The final production provider list and relevant processing locations will be made available once verified.',
+    ],
+    items: [
+      'Supabase: Database and online backend infrastructure.',
+      'Paystack: Payment processing and transaction verification.',
+      'Cloudflare: Website hosting, network infrastructure, security and supported tunnel functionality.',
+      'Other providers: Relay hosting, software distribution, monitoring and infrastructure services where required.',
+    ],
+  },
+  {
+    title: '8. International Data Transfers',
+    paragraphs: [
+      'Some J-Cloud infrastructure or third-party services may process information outside Nigeria.',
+      'Where personal information is transferred internationally, we will take steps required by applicable data-protection law, including appropriate safeguards where necessary.',
+      '**Hosting countries and regions:** [To be confirmed against production infrastructure.]',
+    ],
+  },
+  {
+    title: '9. Security Measures',
+    paragraphs: [
+      'We take reasonable steps to protect personal information against unauthorised access, loss, alteration, misuse and disclosure.',
+      'Our intended safeguards include:',
+      'J-Cloud is designed so that the relay cannot read end-to-end encrypted file-operation traffic.',
+      'However, no software, computer system or network can guarantee absolute security.',
+      'Users are responsible for securing their own laptops, mobile devices, accounts and local files.',
+    ],
+    items: [
+      'Authentication and access controls.',
+      'Protected credential storage.',
+      'Device registration and revocation.',
+      'Encrypted network communication.',
+      'End-to-end protection for supported remote traffic.',
+      'Rate limiting and abuse prevention.',
+      'Security logging.',
+      'Session expiry and cleanup.',
+      'Software updates and vulnerability remediation.',
+    ],
+  },
+  {
+    title: '10. Cookies and Website Technologies',
+    paragraphs: [
+      'The J-Cloud website may use necessary cookies, browser storage and similar technologies to support functionality, session handling and security.',
+      'J-Cloud does not currently intend to use advertising cookies or behavioural advertising tracking.',
+      'We also do not currently intend to use analytics cookies to build advertising profiles.',
+      'Cloudflare and other infrastructure providers may process technical information necessary to provide their services.',
+      'If optional analytics or advertising technologies are introduced, this Policy will be updated and any required consent will be obtained.',
+      'Users can manage browser cookies through their browser settings, although disabling necessary technologies may affect website functionality.',
+    ],
+  },
+  {
+    title: '11. Data Retention',
+    paragraphs: [
+      'We retain personal information only for as long as reasonably necessary for the purposes for which it was collected, subject to applicable legal requirements.',
+      'Retention may be necessary for:',
+      'Different categories of information may have different retention periods.',
+      '**Specific retention periods to be confirmed:**',
+      'We will seek to delete, anonymise or securely dispose of information when it is no longer required.',
+    ],
+    items: [
+      'Account management.',
+      'Authentication and device security.',
+      'Subscription administration.',
+      'Payment reconciliation.',
+      'Fraud prevention.',
+      'Support requests.',
+      'Security investigations.',
+      'Legal obligations and disputes.',
+      'Account records: [Insert period].',
+      'Revoked-device records: [Insert period].',
+      'Payment records: [Confirm applicable statutory requirements].',
+      'Security logs: [Insert period].',
+      'Relay metadata: [Insert period].',
+      'Support correspondence: [Insert period].',
+      'Backup retention: [Confirm provider configuration].',
+    ],
+  },
+  {
+    title: '12. Account Deletion',
+    paragraphs: [
+      'You may request deletion of your J-Cloud account through the supported in-app process or by contacting jtech.gbl@gmail.com.',
+      'We may verify your identity before processing a request.',
+      'Following a valid deletion request, we intend to:',
+      'Some information may remain in protected backups or legally required financial records for a limited period.',
+      '### Important: Local Files Are Not Automatically Deleted',
+      'Deleting your J-Cloud account does not automatically delete files stored on your Windows laptop.',
+      'It also does not automatically delete independent copies or backups that you have created outside J-Cloud.',
+      'Uninstalling the application, revoking a device or allowing a subscription to expire does not automatically erase your local files.',
+      'You remain responsible for managing and backing up files on your computer.',
+    ],
+    items: [
+      'Remove or anonymise eligible account information.',
+      'Invalidate active authentication credentials.',
+      'Revoke registered devices.',
+      'Terminate associated relay sessions.',
+      'Remove or anonymise eligible subscription and service records.',
+      'Retain limited information where legally required or justified by applicable law.',
+    ],
+  },
+  {
+    title: '13. Device Revocation and Subscription Expiry',
+    paragraphs: [
+      'When you revoke a device, we update its authorisation status and prevent new authorised sessions.',
+      'Active remote sessions involving the revoked device should be terminated according to the applicable revocation process.',
+      'When a trial or Premium subscription expires, access to subscription-dependent features is adjusted according to the account\'s entitlement.',
+      'These events do not automatically delete your account or files stored on your laptop.',
+    ],
+  },
+  {
+    title: '14. Legal and Government Requests',
+    paragraphs: [
+      'We may disclose information where required or lawfully permitted by applicable law.',
+      'We will review requests from competent authorities and seek to limit disclosures to information that is relevant and legally required.',
+      'J-Cloud is designed to use end-to-end encryption for protected relay traffic. Where we do not possess the relevant decryption keys or plaintext content, we cannot provide that content merely because a request is received.',
+      'We may still possess limited account, device, payment or connection metadata.',
+      'Where legally permitted and reasonably practicable, we may notify affected users of relevant requests.',
+    ],
+  },
+  {
+    title: '15. Personal Information and Children\'s Privacy',
+    paragraphs: [
+      'J-Cloud\'s intended minimum account age is 13.',
+      'Users aged 13–17 may use the service only where permitted by applicable law and with any required parental or guardian authorisation.',
+      'We do not intend to knowingly process children\'s personal information contrary to applicable legal requirements.',
+      '**Age-verification and guardian-consent implementation:** [Must be confirmed before publication.]',
+    ],
+  },
+  {
+    title: '16. Your Privacy Rights',
+    items: [
+      'Request access to your personal information.',
+      'Request correction of inaccurate information.',
+      'Request deletion of personal information.',
+      'Object to certain processing.',
+      'Request restriction of processing where applicable.',
+      'Withdraw consent where processing relies on consent.',
+      'Lodge a complaint with the relevant data-protection authority.',
+    ],
+    paragraphs: [
+      'To exercise a privacy right, contact:',
+      '**Email:** jtech.gbl@gmail.com',
+      'We may request reasonable information to verify your identity.',
+    ],
+  },
+  {
+    title: '17. Security Incidents',
+    paragraphs: [
+      'If we become aware of a personal-data breach, we will investigate, take appropriate containment and remediation steps, and make notifications required by applicable law.',
+      'Users should promptly report suspected account compromise or unauthorised device access.',
+    ],
+  },
+  {
+    title: '18. Changes to This Policy',
+    paragraphs: [
+      'We may update this Privacy Policy when our services, data-processing practices or legal obligations change.',
+      'The latest version will be published on the official J-Cloud website.',
+      'Where required, we will provide notice of material changes.',
+    ],
+  },
+  {
+    title: '19. Contact',
+    paragraphs: [
+      'For privacy questions, account deletion requests or personal-data requests:',
+      '**Email:** jtech.gbl@gmail.com',
+      '**Website:** https://jcloudweb.jtechcloud.workers.dev',
+    ],
+  },
+  {
+    title: '20. Publication Details Requiring Confirmation',
+    paragraphs: [
+      'Before publication, the operator must confirm:',
+      '**Publication status:** Consolidated working draft. Legal review and verification against the production system are required before publication.',
+    ],
+    items: [
+      'Full legal name and contact address.',
+      'Production hosting countries and regions.',
+      'Actual Supabase, relay and Cloudflare configurations.',
+      'Backup and log-retention periods.',
+      'Actual account-deletion workflow.',
+      'Actual payment information received or stored.',
+      'Cookies and browser storage used by the deployed website.',
+      'Age-verification and guardian-consent implementation.',
+      'Third-party providers and contractual safeguards.',
+      'Applicable privacy notices and regulatory obligations.',
     ],
   },
 ];
